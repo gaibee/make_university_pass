@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="bg-dark">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <div class="bg-white rounded border-dark w-100 p-5 mn-100 text-center">
+        <img src="./images/yslogo.png" class="m-3 w-50">
+        <h2 class="font-weight-bold text-primary">
+            연세대학교 합격증 만들기
+        </h2>
+        <p class="text-secondary text-center">
+            <small>
+                created by 바람개비
+                <br> mail : cjh9217@naver.com
+                <br> blog : http://gaibeelife.tistory.com
+
+            </small>
+        </p>
+    </div>
+
+    <div id="text-wrap" class="bg-white w-100 p-3">
+        <div class="bg-secondary rounded p-4">
+
+            <!-- 여기서부터 텍스트와 버튼이 들어감-->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">대학학부(과)</span>
+                </div>
+                <input type="text" id="txt1" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">수험번호</span>
+                </div>
+                <input type="text" id="txt2" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">성명</span>
+                </div>
+                <input type="text" id="txt3" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">생년월일</span>
+                </div>
+                <input type="text" id="txt4" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">년도</span>
+                </div>
+                <input type="text" id="txt5" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="text-right">
+                <button type="button" id="btn_show" onclick="load_canvas(true)" class="btn btn-primary w-50 text-center">만들기</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="img-wrap" class="bg-white w-100 p-3">
+        <div class="bg-secondary rounded p-4 text-center">
+            <h2 class="text-white font-weight-bold mb-4">
+                결과 미리보기
+            </h2>
+            <canvas id="myCanvas" width="500" hegith="500" class="mb-3"></canvas>
+            <button type="button" onclick="save_data();" id="btn_make" class="btn btn-primary w-100">저장하기</button>
+            <a id="link"></a>
+        </div>
+    </div>
+
+    <script>
+        function save_data() {
+            var canvas = document.getElementById('myCanvas');
+            var link = document.getElementById('link');
+            link.setAttribute('download', 'yspass.png');
+            link.setAttribute('href', canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+            link.click();
+        }
+    </script>
+
+    <script>
+        load_canvas(false);
+        var g_width = 0;
+        var g_height = 0;
+        
+        function load_canvas(todraw) {
+            // 캔버스 로드
+            var img = new Image();
+            img.onload = function() {
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+                
+                var width = screen.width * 7 / 10;
+                if(width>400) {
+                    width=400;
+                }
+                
+                var height = width / 5 * 7
+                
+                g_width = width;
+                g_height = height;
+                
+                ctx.canvas.width = width;
+                ctx.canvas.height = height;
+                ctx.drawImage(img, 0, 0, width, height);
+                
+                // 만약 텍스트를 그리라는 명령까지 있었다면...
+                if(todraw==true) {
+                    drawText();
+                }
+            }
+            img.src = "./images/0001.jpg"
+        }
+
+        function drawText() {
+            var t1 = $("#txt1").val();
+            var t2 = $("#txt2").val();
+            var t3 = $("#txt3").val();
+            var t4 = $("#txt4").val();
+            var t5 = $("#txt5").val();
+            var t6 = parseInt(t5) - 1;
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.font = "bold " + parseInt(g_width / 350 *  12) + "px Arial";
+            ctx.fillText(t1, g_width / 350 * 124, g_height / 490 * 154);
+            ctx.fillText(t2, g_width / 350 * 124, g_height / 490 * 175);
+            ctx.fillText(t3, g_width / 350 * 124, g_height / 490 * 197);
+            ctx.fillText(t4, g_width / 350 * 124, g_height / 490 * 218);
+            ctx.font = "bold " + parseInt(g_width / 350 *  14) + "px Arial";
+            ctx.fillText(t5, g_width / 350 * 120, g_height / 490 * 270);
+            ctx.font = "bold " + parseInt(g_width / 350 *  16) + "px Arial";
+            ctx.fillText(t6, g_width / 350 * 102, g_height / 490 * 345);
+        }
+    </script>
+</body>
+
+</html>
