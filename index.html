@@ -85,6 +85,9 @@
         </div>
     </div>
 
+    <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-1hru9wby27ynp" data-ad-width="320" data-ad-height="100"></ins>
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
     <script>
         function save_data() {
             var canvas = document.getElementById('myCanvas');
@@ -99,30 +102,25 @@
         load_canvas(false);
         var g_width = 0;
         var g_height = 0;
-        
+
         function load_canvas(todraw) {
             // 캔버스 로드
             var img = new Image();
             img.onload = function() {
                 var canvas = document.getElementById("myCanvas");
                 var ctx = canvas.getContext("2d");
-                
                 var width = screen.width * 7 / 10;
-                if(width>400) {
-                    width=400;
+                if (width > 350) {
+                    width = 350;
                 }
-                
                 var height = width / 5 * 7
-                
                 g_width = width;
                 g_height = height;
-                
                 ctx.canvas.width = width;
                 ctx.canvas.height = height;
                 ctx.drawImage(img, 0, 0, width, height);
-                
                 // 만약 텍스트를 그리라는 명령까지 있었다면...
-                if(todraw==true) {
+                if (todraw == true) {
                     drawText();
                 }
             }
@@ -138,14 +136,14 @@
             var t6 = parseInt(t5) - 1;
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
-            ctx.font = "bold " + parseInt(g_width / 350 *  12) + "px Arial";
+            ctx.font = "bold " + parseInt(g_width / 350 * 12) + "px Arial";
             ctx.fillText(t1, g_width / 350 * 124, g_height / 490 * 154);
             ctx.fillText(t2, g_width / 350 * 124, g_height / 490 * 175);
             ctx.fillText(t3, g_width / 350 * 124, g_height / 490 * 197);
             ctx.fillText(t4, g_width / 350 * 124, g_height / 490 * 218);
-            ctx.font = "bold " + parseInt(g_width / 350 *  14) + "px Arial";
+            ctx.font = "bold " + parseInt(g_width / 350 * 14) + "px Arial";
             ctx.fillText(t5, g_width / 350 * 120, g_height / 490 * 270);
-            ctx.font = "bold " + parseInt(g_width / 350 *  16) + "px Arial";
+            ctx.font = "bold " + parseInt(g_width / 350 * 16) + "px Arial";
             ctx.fillText(t6, g_width / 350 * 102, g_height / 490 * 345);
         }
     </script>
