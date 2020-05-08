@@ -18,20 +18,73 @@
     <meta name="description" content="공부 자극이 될 수 있도록 대학교 합격증을 만들 수 있는 사이트">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- bootstrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700,800&display=swap&subset=korean" rel="stylesheet">
+
+    <!-- custom css -->
     <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+
 </head>
 
-<body class="bg-dark">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<body class="bg_black">
+
+    <!-- HTML의 시작 -->
+    <div class="bg-white w-100 p-3">
+        <div class="bg-secondary rounded p-4 text-center">
+            <div id="univ_select" class="btn-group dropright">
+                <button type="button" class="mr-2 btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    연세대학교
+                </button>
+                <div class="dropdown-menu pre-scrollable">
+                    <a href="#" class="dropdown-item">가톨릭대학교</a>
+                    <a href="#" class="dropdown-item">건국대학교</a>
+                    <a href="#" class="dropdown-item">경기대학교</a>
+                    <a href="#" class="dropdown-item">경희대학교</a>
+                    <a href="#" class="dropdown-item">고려대학교</a>
+                    <a href="#" class="dropdown-item">광운대학교</a>
+                    <a href="#" class="dropdown-item">국민대학교</a>
+                    <a href="#" class="dropdown-item">동국대학교</a>
+                    <a href="#" class="dropdown-item">명지대학교</a>
+                    <a href="#" class="dropdown-item">삼육대학교</a>
+                    <a href="#" class="dropdown-item">상명대학교</a>
+                    <a href="#" class="dropdown-item">서강대학교</a>
+                    <a href="#" class="dropdown-item">서경대학교</a>
+                    <a href="#" class="dropdown-item">서울대학교</a>
+                    <a href="#" class="dropdown-item">서울과학기술대학교</a>
+                    <a href="#" class="dropdown-item">서울시립대학교</a>
+                    <a href="#" class="dropdown-item">성공회대학교</a>
+                    <a href="#" class="dropdown-item">성균관대학교</a>
+                    <a href="#" class="dropdown-item">세종대학교</a>
+                    <a href="#" class="dropdown-item">숭실대학교</a>
+                    <a href="#" class="dropdown-item">연세대학교</a>
+                    <a href="#" class="dropdown-item">중앙대학교</a>
+                    <a href="#" class="dropdown-item">총신대학교</a>
+                    <a href="#" class="dropdown-item">한국외국어대학교</a>
+                    <a href="#" class="dropdown-item">한성대학교</a>
+                    <a href="#" class="dropdown-item">한양대학교</a>
+                    <a href="#" class="dropdown-item">홍익대학교</a>
+                    <a href="#" class="dropdown-item">숙명여자대학교</a>
+                    <a href="#" class="dropdown-item">이화여자대학교</a>
+                </div>
+            </div>
+            <span class="font-weight-bold text-white">
+                내가 가고싶은
+                <span class="text-success">대학교</span>는?
+            </span>
+        </div>
+    </div>
 
     <div class="bg-white rounded border-dark w-100 p-5 mn-100 text-center">
-        <img src="./images/yslogo.png" class="m-3 w-50" style="max-width: 300px;">
-        <h1 class="font-weight-bold text-primary">
-            연세대학교 합격증 만들기
+        <img id="cert-title-image" src="./images/yonsei.png" class="m-3 w-50" style="max-width: 300px;">
+        <h1 id="cert-title-text" class="font-weight-bold text-primary">
+            연세대학교<br> 합격증 만들기
         </h1>
         <p class="text-secondary text-center">
             <small>
@@ -84,17 +137,24 @@
             </div>
 
             <div class="text-right">
-                <button type="button" id="btn_show" onclick="load_canvas(true)" class="btn btn-primary text-center" style="width: 200px;">만들기</button>
+                <button type="button" id="btn_show" onclick="make_preview();" class="btn btn-primary text-center" style="width: 200px;">만들기</button>
             </div>
         </div>
     </div>
 
+    <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-1hru9wby27ynp" data-ad-width="320" data-ad-height="100"></ins>
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
+    <!-- 결과 미리보기 -->
     <div id="img-wrap" class="bg-white w-100 p-3">
         <div class="bg-secondary rounded p-4 text-center">
             <h2 class="text-white font-weight-bold mb-4">
                 결과 미리보기
             </h2>
-            <canvas id="myCanvas" width="500" hegith="500" class="mb-3"></canvas>
+
+            <iframe id="frame_preview" src="./make_image.html?univ_id=21&univ_name=연세대학교&part=&number=&name=&birth=&year=2030" scrolling="no" frameborder="0" class="w-100 mb-3" style="display:block;" onload="calcHeight();">
+            </iframe>
+
             <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#exampleModal">
                 저장하기
             </button>
@@ -116,75 +176,95 @@
                     <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-skq2m1w66ed1" data-ad-width="250" data-ad-height="250"></ins>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" onclick="save_data();" class="btn btn-primary">사진 저장하기</button>
+                    <button type="button" id="btn_modal_close" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                    <button type="button" onclick="submitForm();" class="btn btn-primary">사진 저장하기</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-1hru9wby27ynp" data-ad-width="320" data-ad-height="100"></ins>
-    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    <!-- make_image.html에 보낼 데이터를 만드는 form -->
+    <form name="frm_make_image" action="/university_pass/make_image.html" method="GET" accept-charset="utf-8" target="_blank">
+        <input type="hidden" name="univ_id" value="21">
+        <input type="hidden" name="univ_name" value="연세대학교">
+        <input type="hidden" name="part" value="">
+        <input type="hidden" name="number" value="">
+        <input type="hidden" name="name" value="">
+        <input type="hidden" name="birth" value="">
+        <input type="hidden" name="year" value="">
+        <input type="hidden" name="save_img" value="yes">
+    </form>
 
+    <!-- html 갱신 -->
     <script>
-        function save_data() {
-            var canvas = document.getElementById('myCanvas');
-            var link = document.getElementById('link');
-            link.setAttribute('download', 'yspass.png');
-            link.setAttribute('href', canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
-            link.click();
+        var selected_id = 21; // 기본값으로 연세대 선택
+        var selected_name = "연세대학교";
+        
+         $('#univ_select div a').bind('click', function(e) {
+             var html = $(this).html();
+             $('#univ_select button.dropdown-toggle').html(html);
+             
+             selected_id = $(this).index() + 1;
+             selected_name = html;
+             
+             update_html_by_univ();
+         });
+
+        function update_html_by_univ() {
+            $("#cert-title-image").attr("src", "./images/univ_logo/" + selected_id + ".jpg")
+            $("#cert-title-text").html(selected_name + "<br>합격증 만들기")
+        }
+        
+        
+    </script>
+
+    <!-- make_html로 submit 시키는 부분 -->
+    <script>
+        function submitForm() {
+            document.frm_make_image.univ_name.value = selected_name;
+            document.frm_make_image.univ_id.value = selected_id;
+            document.frm_make_image.part.value = $("#txt1").val();
+            document.frm_make_image.number.value = $("#txt2").val();
+            document.frm_make_image.name.value = $("#txt3").val();
+            document.frm_make_image.birth.value = $("#txt4").val();
+            document.frm_make_image.year.value = $("#txt5").val();
+            document.frm_make_image.submit();
+            
+            $("#btn_modal_close").click();
         }
     </script>
 
+    <!-- iframe 제어 부분 -->
     <script>
-        load_canvas(false);
-        var g_width = 0;
-        var g_height = 0;
-
-        function load_canvas(todraw) {
-            // 캔버스 로드
-            var img = new Image();
-            img.onload = function() {
-                var canvas = document.getElementById("myCanvas");
-                var ctx = canvas.getContext("2d");
-                var width = screen.width * 7 / 10;
-                if (width > 350) {
-                    width = 350;
-                }
-                var height = width / 5 * 7
-                g_width = width;
-                g_height = height;
-                ctx.canvas.width = width;
-                ctx.canvas.height = height;
-                ctx.drawImage(img, 0, 0, width, height);
-                // 만약 텍스트를 그리라는 명령까지 있었다면...
-                if (todraw == true) {
-                    drawText();
-                }
-            }
-            img.src = "./images/0001.jpg"
+        /* height 자동 조절 */
+        function calcHeight() {
+            var the_height = document.getElementById('frame_preview').contentWindow.document.body.scrollHeight;
+            document.getElementById('frame_preview').height = the_height;
+            //document.getElementById('the_iframe').scrolling = "no";
+            document.getElementById('frame_preview').style.overflow = "hidden";
         }
-
-        function drawText() {
-            var t1 = $("#txt1").val();
-            var t2 = $("#txt2").val();
-            var t3 = $("#txt3").val();
-            var t4 = $("#txt4").val();
-            var t5 = $("#txt5").val();
-            var t6 = parseInt(t5) - 1;
-            var canvas = document.getElementById("myCanvas");
-            var ctx = canvas.getContext("2d");
-            ctx.font = "bold " + parseInt(g_width / 350 * 12) + "px Arial";
-            ctx.fillText(t1, g_width / 350 * 124, g_height / 490 * 154);
-            ctx.fillText(t2, g_width / 350 * 124, g_height / 490 * 175);
-            ctx.fillText(t3, g_width / 350 * 124, g_height / 490 * 197);
-            ctx.fillText(t4, g_width / 350 * 124, g_height / 490 * 218);
-            ctx.font = "bold " + parseInt(g_width / 350 * 14) + "px Arial";
-            ctx.fillText(t5, g_width / 350 * 120, g_height / 490 * 270);
-            ctx.font = "bold " + parseInt(g_width / 350 * 16) + "px Arial";
-            ctx.fillText(t6, g_width / 350 * 102, g_height / 490 * 345);
+        /* 만들기 버튼 클릭시 iframe src 수정 */
+        function make_preview() {
+            var src = "/university_pass/make_image.html?univ_id=selected_id&univ_name=selected_name&part=txt1&number=txt2&name=txt3&birth=txt4&year=txt5";
+            src = src.replace("selected_id", selected_id);
+            src = src.replace("selected_name", selected_name);
+            src = src.replace("txt1", $("#txt1").val());
+            src = src.replace("txt2", $("#txt2").val());
+            src = src.replace("txt3", $("#txt3").val());
+            src = src.replace("txt4", $("#txt4").val());
+            src = src.replace("txt5", $("#txt5").val());
+            document.getElementById('frame_preview').src = src;
         }
     </script>
+
+
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <!-- html2canvas CDM -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </body>
 
 </html>
