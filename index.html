@@ -145,6 +145,7 @@
         </div>
     </div>
 
+    <!-- 카카오 애드핏 광고 -->
     <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-1hru9wby27ynp" data-ad-width="320" data-ad-height="100"></ins>
     <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 
@@ -155,7 +156,7 @@
                 결과 미리보기
             </h2>
 
-            <iframe id="frame_preview" src="./make_image.html?univ_id=21&univ_name=연세대학교&part=&number=&name=&birth=&year=2030" scrolling="no" frameborder="0" class="w-100 mb-3" style="display:block;" onload="calcHeight();">
+            <iframe id="frame_preview" src="./example_image.html?univ_id=21&univ_name=연세대학교&part=&number=&name=&birth=&year=2030" scrolling="no" frameborder="0" class="w-100 mb-3" style="display:block;" onload="calcHeight();">
             </iframe>
 
             <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#exampleModal">
@@ -187,7 +188,7 @@
     </div>
 
     <!-- make_image.html에 보낼 데이터를 만드는 form -->
-    <form name="frm_make_image" action="/make_image.html" method="GET" accept-charset="utf-8" target="_blank">
+    <form name="frm_make_image" action="./example_image.html" method="GET" accept-charset="utf-8" target="_blank">
         <input type="hidden" name="univ_id" value="21">
         <input type="hidden" name="univ_name" value="연세대학교">
         <input type="hidden" name="part" value="">
@@ -243,12 +244,12 @@
         function calcHeight() {
             var the_height = document.getElementById('frame_preview').contentWindow.document.body.scrollHeight;
             document.getElementById('frame_preview').height = the_height;
-            //document.getElementById('the_iframe').scrolling = "no";
+            document.getElementById('frame_preview').width = parseInt(the_height * 793 / 112);
             document.getElementById('frame_preview').style.overflow = "hidden";
         }
         /* 만들기 버튼 클릭시 iframe src 수정 */
         function make_preview() {
-            var src = "/make_image.html?univ_id=selected_id&univ_name=selected_name&part=txt1&number=txt2&name=txt3&birth=txt4&year=txt5";
+            var src = "./example_image.html?univ_id=selected_id&univ_name=selected_name&part=txt1&number=txt2&name=txt3&birth=txt4&year=txt5";
             src = src.replace("selected_id", selected_id);
             src = src.replace("selected_name", selected_name);
             src = src.replace("txt1", $("#txt1").val());
