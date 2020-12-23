@@ -65,14 +65,17 @@
         function make_canvas() {
             var canvas = document.getElementById('canvas_pass');
             var ctx = canvas.getContext("2d");
-            ctx.globalCompositeOperation='destination-over'; // z축 설정
-            //ctx.fillStyle = "white";
-            //ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.globalCompositeOperation='source-over';
+            ctx.fillStyle = "white";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "black";
+            ctx.font = 'bold 60px "Arial"';
+            ctx.fillText("합 격 통 지 서", 222, 210);
             
             var items = getUrlVars();
             selected_id = items["univ_id"];
             
-            //selected_id = '1'; // 나중에 삭제할 것
+            selected_id = '1'; // 나중에 삭제할 것
             
             var imgLogo = new Image()
             imgLogo.src = './images/univ_logo/' + selected_id + '.jpg'
@@ -86,6 +89,35 @@
                 var ctx_real = canvas_real.getContext("2d");
                 
                 var items = getUrlVars();
+                
+                ctx.globalAlpha = 1.0
+                ctx.font = 'bold 60px "Arial"';
+                ctx.fillText("합 격 통 지 서", 222, 210);
+
+                ctx.font = 'bold 23px "Arial"';
+                ctx.fillText("대학학부(과)", 69, 357);
+                ctx.fillText("수험번호", 69, 394);
+                ctx.fillText("성명", 69, 431);
+                ctx.fillText("생년월일", 69, 468);
+
+                ctx.font = 'bold 23px "Arial"';
+                ctx.fillText(items["part"], 232, 357);
+                ctx.fillText(items["number"], 232, 394);
+                ctx.fillText(items["name"], 232, 431);
+                ctx.fillText(items["birth"], 232, 468);
+
+                ctx.font = 'bold 30px "Arial"';
+                ctx.textAlign = "center";
+                ctx.fillText("위 사람은 " + items["year"] + "학년도 우리 대학교 입학전형에", 396, 601);
+                ctx.fillText("합격하였음을 통지합니다.", 396, 655);
+
+                ctx.font = 'bold 30px "Arial"';
+                ctx.textAlign = "center";
+                ctx.fillText(items["year"] + "년 12월 20일", 396, 775);
+
+                ctx.font = 'bold 40px "Arial"';
+                ctx.textAlign = "center";
+                ctx.fillText((items["univ_name"]+ "총장").split('').join(' '), 396, 928);
                 
                 // 실제 페이지로 들어옴
                 if(items["save_img"]=="yes") {
@@ -102,35 +134,6 @@
                     console.log('Test용 화면');
                 }
             },false);
-
-            ctx.globalAlpha = 1.0
-            ctx.font = 'bold 60px "Arial"';
-            ctx.fillText("합 격 통 지 서", 222, 210);
-            
-            ctx.font = 'bold 23px "Arial"';
-            ctx.fillText("대학학부(과)", 69, 357);
-            ctx.fillText("수험번호", 69, 394);
-            ctx.fillText("성명", 69, 431);
-            ctx.fillText("생년월일", 69, 468);
-            
-            ctx.font = 'bold 23px "Arial"';
-            ctx.fillText(items["part"], 232, 357);
-            ctx.fillText(items["number"], 232, 394);
-            ctx.fillText(items["name"], 232, 431);
-            ctx.fillText(items["birth"], 232, 468);
-            
-            ctx.font = 'bold 30px "Arial"';
-            ctx.textAlign = "center";
-            ctx.fillText("위 사람은 " + items["year"] + "학년도 우리 대학교 입학전형에", 396, 601);
-            ctx.fillText("합격하였음을 통지합니다.", 396, 655);
-            
-            ctx.font = 'bold 30px "Arial"';
-            ctx.textAlign = "center";
-            ctx.fillText(items["year"] + "년 12월 20일", 396, 775);
-            
-            ctx.font = 'bold 40px "Arial"';
-            ctx.textAlign = "center";
-            ctx.fillText((items["univ_name"]+ "총장").split('').join(' '), 396, 928);
         }
         
         function save_data() {
