@@ -124,7 +124,12 @@
                     canvas_real.width = 793
                     canvas_real.height = 1122
                     ctx_real.drawImage(canvas, 0, 0, 793, 1122);
-                    saveAs(canvas_real.toDataURL('image/png'), "certificate.png");
+                    try {
+                        saveAs(canvas_real.toDataURL('image/png'), "certificate.png");    
+                    } catch (e) {
+                        alert('error');
+                    }
+                    
                 } else {
                     // 이전 웹페이지에서 띄운 화면임
                     canvas_real.width = $(window).width()
