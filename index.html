@@ -16,6 +16,7 @@
     
     <!-- 구글 애드센스 -->
     <script data-ad-client="ca-pub-2031285067881748" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>대학교 합격증 만들기</title>
     <meta name="description" content="공부 자극이 될 수 있도록 대학교 합격증을 만들 수 있는 사이트">
@@ -39,153 +40,169 @@
 <body class="bg_black">
 
     <!-- HTML의 시작 -->
-    <div class="bg-white w-100 p-3">
-        <div class="bg-secondary rounded p-4 text-center">
-            <div id="univ_select" class="btn-group dropright">
-                <button type="button" class="mr-2 btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    연세대학교
-                </button>
-                <div class="dropdown-menu pre-scrollable">
-                    <a href="#" class="dropdown-item">가톨릭대학교</a>
-                    <a href="#" class="dropdown-item">건국대학교</a>
-                    <a href="#" class="dropdown-item">경기대학교</a>
-                    <a href="#" class="dropdown-item">경희대학교</a>
-                    <a href="#" class="dropdown-item">고려대학교</a>
-                    <a href="#" class="dropdown-item">광운대학교</a>
-                    <a href="#" class="dropdown-item">국민대학교</a>
-                    <a href="#" class="dropdown-item">동국대학교</a>
-                    <a href="#" class="dropdown-item">명지대학교</a>
-                    <a href="#" class="dropdown-item">삼육대학교</a>
-                    <a href="#" class="dropdown-item">상명대학교</a>
-                    <a href="#" class="dropdown-item">서강대학교</a>
-                    <a href="#" class="dropdown-item">서경대학교</a>
-                    <a href="#" class="dropdown-item">서울대학교</a>
-                    <a href="#" class="dropdown-item">서울과학기술대학교</a>
-                    <a href="#" class="dropdown-item">서울시립대학교</a>
-                    <a href="#" class="dropdown-item">성공회대학교</a>
-                    <a href="#" class="dropdown-item">성균관대학교</a>
-                    <a href="#" class="dropdown-item">세종대학교</a>
-                    <a href="#" class="dropdown-item">숭실대학교</a>
-                    <a href="#" class="dropdown-item">연세대학교</a>
-                    <a href="#" class="dropdown-item">중앙대학교</a>
-                    <a href="#" class="dropdown-item">총신대학교</a>
-                    <a href="#" class="dropdown-item">한국외국어대학교</a>
-                    <a href="#" class="dropdown-item">한성대학교</a>
-                    <a href="#" class="dropdown-item">한양대학교</a>
-                    <a href="#" class="dropdown-item">홍익대학교</a>
-                    <a href="#" class="dropdown-item">숙명여자대학교</a>
-                    <a href="#" class="dropdown-item">이화여자대학교</a>
+    <div class="row justify-content-md-center p-2">
+        <div class="col-md-8 border rounded">
+            
+            <!-- 대학교 선택 -->
+            <div class="bg-white py-2">
+                <div class="bg-secondary rounded p-4 text-center">
+                    <div id="univ_select" class="btn-group dropright">
+                        <button type="button" class="mr-2 btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+                            연세대학교
+                        </button>
+                        <div class="dropdown-menu pre-scrollable">
+                            <a href="#" class="dropdown-item">가톨릭대학교</a>
+                            <a href="#" class="dropdown-item">건국대학교</a>
+                            <a href="#" class="dropdown-item">경기대학교</a>
+                            <a href="#" class="dropdown-item">경희대학교</a>
+                            <a href="#" class="dropdown-item">고려대학교</a>
+                            <a href="#" class="dropdown-item">광운대학교</a>
+                            <a href="#" class="dropdown-item">국민대학교</a>
+                            <a href="#" class="dropdown-item">동국대학교</a>
+                            <a href="#" class="dropdown-item">명지대학교</a>
+                            <a href="#" class="dropdown-item">삼육대학교</a>
+                            <a href="#" class="dropdown-item">상명대학교</a>
+                            <a href="#" class="dropdown-item">서강대학교</a>
+                            <a href="#" class="dropdown-item">서경대학교</a>
+                            <a href="#" class="dropdown-item">서울대학교</a>
+                            <a href="#" class="dropdown-item">서울과학기술대학교</a>
+                            <a href="#" class="dropdown-item">서울시립대학교</a>
+                            <a href="#" class="dropdown-item">성공회대학교</a>
+                            <a href="#" class="dropdown-item">성균관대학교</a>
+                            <a href="#" class="dropdown-item">세종대학교</a>
+                            <a href="#" class="dropdown-item">숭실대학교</a>
+                            <a href="#" class="dropdown-item">연세대학교</a>
+                            <a href="#" class="dropdown-item">중앙대학교</a>
+                            <a href="#" class="dropdown-item">총신대학교</a>
+                            <a href="#" class="dropdown-item">한국외국어대학교</a>
+                            <a href="#" class="dropdown-item">한성대학교</a>
+                            <a href="#" class="dropdown-item">한양대학교</a>
+                            <a href="#" class="dropdown-item">홍익대학교</a>
+                            <a href="#" class="dropdown-item">숙명여자대학교</a>
+                            <a href="#" class="dropdown-item">이화여자대학교</a>
+                        </div>
+                    </div>
+                    <span class="font-weight-bold text-white">
+                        내가 가고싶은
+                        <span class="text-success">대학교</span>는?
+                    </span>
                 </div>
             </div>
-            <span class="font-weight-bold text-white">
-                내가 가고싶은
-                <span class="text-success">대학교</span>는?
-            </span>
+            
+            <hr>
+
+            <!-- 대학교 로고 및 제작자 정보 -->
+            <div class="bg-white rounded border-dark text-center">
+                <img id="cert-title-image" src="./images/yonsei.png" class="m-3 w-50" style="max-width: 300px;">
+                <h1 id="cert-title-text" class="font-weight-bold text-primary">
+                    연세대학교<br> 합격증 만들기
+                </h1>
+                <p class="text-secondary text-center">
+                    <small>
+                        created by 바람개비
+                        <br> mail : cjh9217@naver.com
+                        <br>
+                        <a href="http://gaibeelife.tistory.com">blog : http://gaibeelife.tistory.com</a>
+
+                    </small>
+                </p>
+            </div>
+
+            <hr>
+
+            <div id="text-wrap" class="bg-white">
+                <div class="bg-secondary rounded p-4">
+
+                    <!-- 여기서부터 텍스트와 버튼이 들어감-->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">대학학부(과)</span>
+                        </div>
+                        <input type="text" id="txt1" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">수험번호</span>
+                        </div>
+                        <input type="text" id="txt2" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">성명</span>
+                        </div>
+                        <input type="text" id="txt3" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">생년월일</span>
+                        </div>
+                        <input type="text" id="txt4" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">년도</span>
+                        </div>
+                        <input type="text" id="txt5" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+                    <div class="text-right">
+                        <button type="button" id="btn_show" onclick="make_preview();" class="btn btn-primary text-center" style="width: 200px;">만들기</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 카카오 애드핏 광고 -->
+            <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-1hru9wby27ynp" data-ad-width="320" data-ad-height="100"></ins>
+            <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
+            <!-- 결과 미리보기 -->
+                <div id="img-wrap" class="bg-white">
+                    <div class="bg-secondary rounded p-2">
+                        <h2 class="text-white font-weight-bold text-center">
+                            결과 미리보기
+                        </h2>
+
+                        <iframe id="frame_preview" src="./example_image.html?univ_id=21&univ_name=연세대학교&part=&number=&name=&birth=&year=2030" scrolling="no" frameborder="0" class="w-100" onload="calcHeight();">
+                        </iframe>
+
+                        <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#exampleModal">
+                            저장하기
+                        </button>
+                        <a id="link"></a>
+                    </div>
+                </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">대학교 합격증 만들기</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="width:250px; height:290px; margin:0 auto;">
+                            <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-skq2m1w66ed1" data-ad-width="250" data-ad-height="250"></ins>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="btn_modal_close" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                            <button type="button" onclick="submitForm();" class="btn btn-primary">사진 저장하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <div class="bg-white rounded border-dark w-100 p-5 mn-100 text-center">
-        <img id="cert-title-image" src="./images/yonsei.png" class="m-3 w-50" style="max-width: 300px;">
-        <h1 id="cert-title-text" class="font-weight-bold text-primary">
-            연세대학교<br> 합격증 만들기
-        </h1>
-        <p class="text-secondary text-center">
-            <small>
-                created by 바람개비
-                <br> mail : cjh9217@naver.com
-                <br>
-                <a href="http://gaibeelife.tistory.com">blog : http://gaibeelife.tistory.com</a>
 
-            </small>
-        </p>
-    </div>
 
-    <div id="text-wrap" class="bg-white w-100 p-3">
-        <div class="bg-secondary rounded p-4">
-
-            <!-- 여기서부터 텍스트와 버튼이 들어감-->
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">대학학부(과)</span>
-                </div>
-                <input type="text" id="txt1" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">수험번호</span>
-                </div>
-                <input type="text" id="txt2" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">성명</span>
-                </div>
-                <input type="text" id="txt3" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">생년월일</span>
-                </div>
-                <input type="text" id="txt4" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">년도</span>
-                </div>
-                <input type="text" id="txt5" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-
-            <div class="text-right">
-                <button type="button" id="btn_show" onclick="make_preview();" class="btn btn-primary text-center" style="width: 200px;">만들기</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 카카오 애드핏 광고 -->
-    <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-1hru9wby27ynp" data-ad-width="320" data-ad-height="100"></ins>
-    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-
-    <!-- 결과 미리보기 -->
-    <div id="img-wrap" class="bg-white w-100 p-3">
-        <div class="bg-secondary rounded p-4 text-center">
-            <h2 class="text-white font-weight-bold mb-4">
-                결과 미리보기
-            </h2>
-
-            <iframe id="frame_preview" src="./example_image.html?univ_id=21&univ_name=연세대학교&part=&number=&name=&birth=&year=2030" scrolling="no" frameborder="0" class="w-100 mb-3" style="display:block;" onload="calcHeight();">
-            </iframe>
-
-            <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#exampleModal">
-                저장하기
-            </button>
-            <a id="link"></a>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">대학교 합격증 만들기</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" style="width:250px; height:290px; margin:0 auto;">
-                    <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-skq2m1w66ed1" data-ad-width="250" data-ad-height="250"></ins>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="btn_modal_close" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-                    <button type="button" onclick="submitForm();" class="btn btn-primary">사진 저장하기</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- make_image.html에 보낼 데이터를 만드는 form -->
     <form name="frm_make_image" action="./example_image.html" method="GET" accept-charset="utf-8" target="_blank">
@@ -240,13 +257,22 @@
 
     <!-- iframe 제어 부분 -->
     <script>
+        // 윈도우 크기가 resize 될 때 iframe 크기도 조절
+        $(window).resize(function() {
+            calcHeight();
+        })
+        
+        // iframe이 load 완료되었을 때 iframe 크기 조절
+        $('#frame_preview').load(function() {
+            calcHeight();
+        })
+        
         /* height 자동 조절 */
         function calcHeight() {
-            var the_height = document.getElementById('frame_preview').contentWindow.document.body.scrollHeight;
-            document.getElementById('frame_preview').height = the_height;
-            document.getElementById('frame_preview').width = parseInt(the_height * 793 / 112);
-            document.getElementById('frame_preview').style.overflow = "hidden";
+            var width = $('#frame_preview').width();
+            $('#frame_preview').height(width / 793 * 1122);
         }
+        
         /* 만들기 버튼 클릭시 iframe src 수정 */
         function make_preview() {
             var src = "./example_image.html?univ_id=selected_id&univ_name=selected_name&part=txt1&number=txt2&name=txt3&birth=txt4&year=txt5";
@@ -260,7 +286,6 @@
             document.getElementById('frame_preview').src = src;
         }
     </script>
-
 
     <!-- bootstrap script -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
