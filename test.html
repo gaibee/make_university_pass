@@ -14,38 +14,48 @@
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    
+    
+    <script src="js/crossOrigin.js"></script> <!--cross origin-->
+    <script src="js/fileSystem.js"></script> <!-- fileSystem -->
+    
+    
+
+
 </head>
 
 <body>
     
-    <div class="d-flex justify-content-between blue-gradient color-block align-items-center m-3 border">
-        <h1 class="col-4 text-muted">
-            aaa
+    <div class="text-center mt-5 mb-5">
+        <h1>
+            WebToon Viewer and Downloader
         </h1>
-        <h2 class="col-4 text-center">
-            bbb
-        </h2>
-        <h3 class="col-4 d-flex justify-content-end">
-            ccc
-        </h3>
     </div>
     
-    <div class="row border m-2 justify-content-between">
-        <h1 class="col-4 text-muted border">
-            aaa
-        </h1>
-                <h1 class="col-4 text-muted border">
-            aaa
-        </h1>
-                <h1 class="col-4 text-muted border">
-            aaa
-        </h1>
-                <h1 class="col-4 text-muted border">
-            aaa
-        </h1>
+    <hr>
+    
+    <div class="container">
+        <div class="webtoon-info mr-md-3 ml-md-3">
+            <div class="mb-3">
+                <label for="webtoon-number">웹툰 번호</label>
+                <input type="text" class="form-control" id="txt-wt-id" value="641253">
+            </div>
+            <div class="mb-4">
+                <label for="webtoon-number">웹툰 페이지</label>
+                <input type="text" class="form-control" id='txt-wt-page-num'>
+            </div>
+            <div class="mb-5">
+                <button type="button" class="btn btn-primary btn-block" id="btn-get-webtoon">웹툰 가져오기</button>
+            </div>
+        </div>
     </div>
-
-  
+    
+    <hr>
+    
+    <div class="container">
+        <div class="wt-viewer p-2 row justify-content-center" id="wt_viewer">
+        </div>  
+    </div>
 
     <!-- bootstrap script -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -53,5 +63,33 @@
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
 </body>
+    <script>
+        
+        $('#btn-get-webtoon').click(function() {
+            
+            titleId = $('#txt-wt-id').val();
+            pageNum = $('#txt-wt-page-num').val();
+            
+            if(titleId=='' || pageNum=='') {
+                alert('웹툰 아이디 또는 번호를 입력해주세요.');
+                return;
+            };
+            
+            titleId = parseInt(titleId).toString();
+            pageNum = parseInt(pageNum).toString();
+            
+            var source;
+            request('https://comic.naver.com/webtoon/detail.nhn?titleId=' + titleId + '&no=' + pageNum, 'GET', null, false, function(ret) {
+                source = ret['responseText'];
+            })
+            var div_wt_viewer = source.split('div class="wt_viewer" style="background:#FFFFFF">')[1].split("</div>")[0];
+            console.log(div_wt_viewer);
+
+            $('#wt_viewer').html(div_wt_viewer);
+        })
+        
+
+        
+    </script>
 
 </html>
