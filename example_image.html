@@ -14,6 +14,9 @@
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    
+    <!-- test canvas 강제 save js -->
+    <script src="js/canvasToImage.js"></script>
 </head>
 
 <body>
@@ -145,6 +148,8 @@
                     resize_image();
                     console.log('Test용 화면');
                 }
+                
+                Canvas2Image.saveAsPNG(canvas_real);
                 
                 // Test
                 $("#a-url").attr('href', canvas_real.toDataURL('image/png'));
