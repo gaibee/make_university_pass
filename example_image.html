@@ -18,6 +18,9 @@
 
 <body>
     <div class="container border p-2 text-center" id="div-url">
+        <h5 id="h-url">
+            abc
+        </h5>
         <a href="#" id="a-url"></a>
     </div>
     
@@ -79,7 +82,7 @@
             var items = getUrlVars();
             selected_id = items["univ_id"];
             
-            //selected_id = '1'; // 나중에 삭제할 것
+            selected_id = '1'; // 나중에 삭제할 것
             
             var imgLogo = new Image()
             imgLogo.src = './images/univ_logo/' + selected_id + '.jpg'
@@ -129,7 +132,7 @@
                     canvas_real.height = 1122
                     ctx_real.drawImage(canvas, 0, 0, 793, 1122);
                     try {
-                        saveAs(canvas_real.toDataURL('image/png').replace("image/png", "image/octet-stream"), "certificate.png");    
+                        //saveAs(canvas_real.toDataURL('image/png').replace("image/png", "image/octet-stream"), "certificate.png");    
                     } catch (e) {
                         alert('error');
                     }
@@ -144,9 +147,10 @@
                 }
                 
                 // Test
-                //$("#a-url").attr('href', canvas_real.toDataURL('image/png'));
-                //$("#a-url").attr('download', 'certificate.png');
-                //$("#a-url").text('다운로드가 진행되지 않을시 클릭');
+                $("#a-url").attr('href', canvas_real.toDataURL('image/png'));
+                $("#a-url").attr('download', 'certificate.png');
+                $("#a-url").text('다운로드가 진행되지 않을시 클릭');
+                $("#h-url").text(canvas_real.toDataURL('image/png'));
             },false);
         }
         
