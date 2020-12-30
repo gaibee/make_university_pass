@@ -27,6 +27,10 @@
         
     </div>
     
+    <a href="cert.png" download>
+  <img src='https://s.pstatic.net/static/www/mobile/edit/2020/1230/mobile_1557191591.png' alt="W3Schools">
+</a>
+    
     <div class="row justify-content-center">
         <!-- 이미지 비율은 793 * 1122 가 적당하다 -->
         
@@ -136,7 +140,7 @@
                     ctx_real.drawImage(canvas, 0, 0, 793, 1122);
                     try {
                         //saveAs(canvas_real.toDataURL('image/png').replace("image/png", "image/octet-stream"), "certificate.png");
-                        download(canvas_real.toDataURL('image/png'), 'certificate.png', 'image/png');
+                        //download(canvas_real.toDataURL('image/png'), 'certificate.png', 'image/png');
                     } catch (e) {
                         alert('error');
                     }
@@ -169,6 +173,19 @@
             var link = document.createElement('a');
             if (typeof link.download === 'string') {
                 link.href = uri;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else {
+                window.open(uri);
+            }
+        }
+        
+        function saveAs2(uri, filename) {
+            var link = document.createElement('a');
+            if (typeof link.download === 'string') {
+                link.href = 'https://s.pstatic.net/static/www/mobile/edit/2020/1230/mobile_1557191591.png';
                 link.download = filename;
                 document.body.appendChild(link);
                 link.click();
