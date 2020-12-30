@@ -15,8 +15,8 @@
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     
-    <!-- test canvas 강제 save js -->
-    <script src="js/canvasToImage.js"></script>
+    <!-- 강제 download js -->
+    <script src="js/download.js"></script>
 </head>
 
 <body>
@@ -85,7 +85,7 @@
             var items = getUrlVars();
             selected_id = items["univ_id"];
             
-            //selected_id = '1'; // 나중에 삭제할 것
+           // selected_id = '1'; // 나중에 삭제할 것
             
             var imgLogo = new Image()
             imgLogo.src = './images/univ_logo/' + selected_id + '.jpg'
@@ -135,7 +135,8 @@
                     canvas_real.height = 1122
                     ctx_real.drawImage(canvas, 0, 0, 793, 1122);
                     try {
-                        saveAs(canvas_real.toDataURL('image/png').replace("image/png", "image/octet-stream"), "certificate.png");    
+                        //saveAs(canvas_real.toDataURL('image/png').replace("image/png", "image/octet-stream"), "certificate.png");
+                        download(canvas_real.toDataURL('image/png'), 'certificate.png', 'image/png');
                     } catch (e) {
                         alert('error');
                     }
