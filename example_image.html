@@ -131,7 +131,7 @@
                     try {
                         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
                             // 만약 모바일기기라면..
-                            alert('its mobile!');
+                            window.location.href(canvas_real.toDataURL('image/png'));
                         } else {
                             saveAs(canvas_real.toDataURL('image/png').replace("image/png", "image/octet-stream"), "certificate.png");
                         }
