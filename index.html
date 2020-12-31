@@ -38,8 +38,11 @@
 </head>
 
 <body class="bg_black">
-    <a href="https://down.kilho.net/data/Kalmuri.zip?v3.1.10.0">다운로드</a>
-
+    
+    <!-- test용 -->
+    <a id="a-test" href="https://down.kilho.net/data/Kalmuri.zip?v3.1.10.0" download="aa.png">다운로드</a>
+    <canvas id="canvas_pass" width="200" height="200"></canvas>
+    
     <!-- HTML의 시작 -->
     <div class="row justify-content-md-center p-2">
         <div class="col-md-8 border rounded">
@@ -216,6 +219,25 @@
         <input type="hidden" name="year" value="">
         <input type="hidden" name="save_img" value="yes">
     </form>
+    
+    <!-- test용 자바스크립트 -->
+    <script>
+        var canvas = document.getElementById('canvas_pass');
+        var ctx = canvas.getContext("2d");
+        
+        var img = document.getElementById('cert-title-image');
+        img.addEventListener('load', function(){
+            ctx.drawImage(img, 0, 0, 200, 200);
+            
+            var a_test = document.getElementById('a-test');
+            a_test.href = canvas.toDataURL('image/png');
+        });
+        
+
+        
+        
+    </script>
+    
 
     <!-- html 갱신 -->
     <script>
