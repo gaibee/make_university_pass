@@ -129,7 +129,14 @@
                     canvas_real.height = 1122
                     ctx_real.drawImage(canvas, 0, 0, 793, 1122);
                     try {
-                        saveAs(canvas_real.toDataURL('image/png').replace("image/png", "image/octet-stream"), "certificate.png");
+                        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                            // 만약 모바일기기라면..
+                            alert('its mobile!');
+                        } else {
+                            saveAs(canvas_real.toDataURL('image/png').replace("image/png", "image/octet-stream"), "certificate.png");
+                        }
+                        
+                        
                     } catch (e) {
                         alert('error');
                     }
