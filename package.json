@@ -1,0 +1,6 @@
+{
+    "name":"make-university-pass",
+    "scripts": {
+        "start" : "index.html"
+    }
+}
